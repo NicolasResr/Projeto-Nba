@@ -145,9 +145,13 @@ background: linear-gradient(#0a0f2c, #0c32c9);
 }
 
 .info-linha p {
-  margin: 5px 0 0;
+  margin: 15px 0 0;
   font-size: 15px;
   opacity: 0.85;
+}
+
+.info-linha img{
+  margin-right: 20px;
 }
 
 .texto-sobre {
