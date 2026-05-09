@@ -1,74 +1,340 @@
-/* Não usar pure white or pure black: https://uxplanet.org/basicdesign-never-use-pure-black-in-typography-36138a3327a6 */
-/* The 4-point grid system: https://medium.com/@sainzkike/controlling-spacing-in-design-systems-multiple-spacing-9bf1afec87f */
-
-:root {
-    --primary-brand-color: #ED145B;
-    --secondary-brand-color: #0762C8;
-    --success: #198754;
-    --success-dark: #095c36;
-    --success-light: #9dd3ba;
-    --warning: #ffc107;
-    --warning-dark: #705400;
-    --warning-light: #fdebb3;
-    --danger: #dc3545;
-    --danger-dark: #990c19;
-    --danger-light: #f0c1c6;
-    --new-gray: #CCCCCC;
-    --new-black: #212427;
-    --new-white: #E8E8E8;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-    color: var(--new-black);
-    background-color: var(--new-white);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+body{
+  min-height:100vh;
+  font-family:"Montserrat",sans-serif;
+
+  background:
+  linear-gradient(rgba(4,10,25,0.88),rgba(4,10,25,0.9)),
+  url(../assets/imgs/fundo-nba.jpg);
+
+  background-size:cover;
+  background-position:center;
+
+  color:white;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:40px;
 }
 
-button {
-    font-family: monospace;
-    font-weight: bold;
+#pontuacaoEJogo{
+  width:100%;
+  max-width:1400px;
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+
+  gap:40px;
 }
 
-.flex-colunar {
+#pontuacao {
+    width: 840px;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(10px);
+
     display: flex;
     flex-direction: column;
+
+    gap: 25px;
 }
 
-.width-fit-content {
-    width: fit-content;
+#pontuacao h2 {
+    font-size: 42px;
+    font-weight: 900;
+
+    margin-bottom: 10px;
 }
 
-.border-primary {
-    border: 3px solid var(--primary-brand-color);
+.boxPontuacao {
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.border-secondary {
-    border: 3px solid var(--secondary-brand-color);
+.boxPontuacao span {
+    display: block;
+
+    color: #d0d0d0;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    margin-bottom: 10px;
 }
 
-.padding-8 {
-    padding: 8px;
+.boxPontuacao h1 {
+    color: #ff7b00;
+
+    font-size: 42px;
+    font-weight: 900;
+
+    line-height: 1;
 }
 
-.text-bold {
-    font-weight: bold;
+#msgFinal {
+    width: 100%;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    color: #e4e4e4;
+
+    overflow-wrap: break-word;
 }
 
-.text-success-with-bg {
-    color: var(--success-dark);
-    background-color: var(--success-light);
+#msgFinal h2 {
+    font-size: 42px;
+
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+
+    color: white;
 }
 
-.text-warning-with-bg {
-    color: var(--warning-dark);
-    background-color: var(--warning-light);
+#pontuacaoDuranteJogo{
+  margin-bottom:35px;
 }
 
-.text-danger-with-bg {
-    color: var(--danger-dark);
-    background-color: var(--danger-light);
+#pontuacaoDuranteJogo span{
+  font-size:28px;
+  font-weight:800;
+  line-height:1.2;
 }
 
-.text-new-gray {
-    color: var(--new-gray);
+#spanCertas{
+  color:#ff7b00;
+}
+
+#pontuacaoFinal{
+  font-size:28px;
+  font-weight:800;
+  line-height:1.2;
+}
+
+#spanPontuacaoFinal{
+  color:#ff7b00;
+}
+
+#msgFinal{
+  display:block;
+  margin-top:30px;
+
+  color:#d8d8d8;
+
+  line-height:1.8;
+}
+
+#jogo{
+  width:850px;
+
+  background:rgba(255,255,255,0.05);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  border-radius:25px;
+
+  padding:40px;
+
+  backdrop-filter:blur(8px);
+}
+
+#infoQuestao{
+  margin-bottom:25px;
+}
+
+#infoQuestao span{
+  font-size:20px;
+  font-weight:700;
+  color:#d8d8d8;
+}
+
+#perguntaDaQuestaoAtual{
+  margin-bottom:40px;
+}
+
+#spanQuestaoExibida{
+  font-size:65px;
+  font-weight:900;
+  line-height:1;
+}
+
+#infoAlternativas{
+  margin-bottom:25px;
+}
+
+#infoAlternativas span{
+  font-size:28px;
+  font-weight:800;
+  color:#ff7b00;
+}
+
+#opcoes{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+#opcoes span{
+  display:flex;
+  align-items:center;
+
+  background:rgba(255,255,255,0.05);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  border-radius:18px;
+
+  padding:22px;
+
+  transition:0.3s;
+}
+
+#opcoes span:hover{
+  border:1px solid #ff7b00;
+  transform:translateY(-2px);
+}
+
+#opcoes input{
+  width:20px;
+  height:20px;
+
+  margin-right:18px;
+
+  accent-color:#ff7b00;
+}
+
+#opcoes label{
+  width:100%;
+
+  font-size:24px;
+  font-weight:700;
+
+  cursor:pointer;
+}
+
+#botoes{
+  margin-top:35px;
+}
+
+#btnSubmeter,
+#btnIniciarQuiz{
+  width:100%;
+  height:65px;
+
+  border:none;
+  border-radius:15px;
+
+  background:linear-gradient(90deg,#ff7b00,#ff4800);
+
+  color:white;
+
+  font-size:22px;
+  font-weight:800;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+  box-shadow:0 10px 30px rgba(255,123,0,0.4);
+}
+
+#btnSubmeter:hover,
+#btnIniciarQuiz:hover{
+  transform:translateY(-3px);
+}
+
+@media screen and (max-width:1200px){
+
+  #pontuacaoEJogo{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  #pontuacao{
+    width:100%;
+  }
+
+  #jogo{
+    width:100%;
+  }
+
+  #spanQuestaoExibida{
+    font-size:45px;
+  }
+}
+
+@media screen and (max-width:700px){
+
+  body{
+    padding:20px;
+  }
+
+  #jogo{
+    padding:25px;
+  }
+
+  #spanQuestaoExibida{
+    font-size:35px;
+  }
+
+  #opcoes label{
+    font-size:18px;
+  }
+}
+
+#msgFinal h2 {
+    font-size: 38px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+#msgFinal {
+    word-break: break-word;
+}
+
+#msgFinal br {
+    display: block;
+    content: "";
+    margin-top: 10px;
+}
+
+#pontuacao {
+    justify-content: flex-start;
+}
+
+.boxPontuacao h1 {
+    font-size: 42px;
+}
+
+@media screen and (max-width: 1400px) {
+
+    #msgFinal h2 {
+        font-size: 28px;
+    }
+
+    #msgFinal {
+        font-size: 16px;
+    }
 }

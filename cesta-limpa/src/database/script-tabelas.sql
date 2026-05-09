@@ -2,12 +2,20 @@ CREATE DATABASE cestaLimpa;
 
 USE cestaLimpa;
 
+/* ========================= */
+/* TABELA TIME */
+/* ========================= */
+
 CREATE TABLE time (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 	conferencia VARCHAR(20),
 	codigo_ativacao VARCHAR(50)
 );
+
+/* ========================= */
+/* TABELA USUARIO */
+/* ========================= */
 
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -18,6 +26,9 @@ CREATE TABLE usuario (
 	FOREIGN KEY (fk_time) REFERENCES time(id)
 );
 
+/* ========================= */
+/* TABELA AVISO */
+/* ========================= */
 
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -26,6 +37,10 @@ CREATE TABLE aviso (
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
+
+/* ========================= */
+/* TABELA JOGADOR */
+/* ========================= */
 
 CREATE TABLE jogador (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -38,14 +53,26 @@ CREATE TABLE jogador (
 	FOREIGN KEY (fk_time) REFERENCES time(id)
 );
 
-CREATE TABLE respostaQuiz (
+/* ========================= */
+/* TABELA RESULTADO QUIZ */
+/* ========================= */
+
+CREATE TABLE resultadoQuiz (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	pergunta VARCHAR(200),
-	resposta VARCHAR(100),
-	jogador_relacionado VARCHAR(50),
+	jogador_resultado VARCHAR(50),
+	porcentagem_curry DECIMAL(5,2),
+	porcentagem_lebron DECIMAL(5,2),
+	porcentagem_magic DECIMAL(5,2),
+	porcentagem_shaq DECIMAL(5,2),
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
+
+/* ========================= */
+/* TIMES NBA */
+/* ========================= */
+
+/* LESTE */
 
 INSERT INTO time (nome, conferencia, codigo_ativacao)
 VALUES ('Atlanta Hawks', 'Leste', 'atlanta hawks');
@@ -92,6 +119,8 @@ VALUES ('Toronto Raptors', 'Leste', 'toronto raptors');
 INSERT INTO time (nome, conferencia, codigo_ativacao)
 VALUES ('Washington Wizards', 'Leste', 'washington wizards');
 
+/* OESTE */
+
 INSERT INTO time (nome, conferencia, codigo_ativacao)
 VALUES ('Dallas Mavericks', 'Oeste', 'dallas mavericks');
 
@@ -136,3 +165,28 @@ VALUES ('San Antonio Spurs', 'Oeste', 'san antonio spurs');
 
 INSERT INTO time (nome, conferencia, codigo_ativacao)
 VALUES ('Utah Jazz', 'Oeste', 'utah jazz');
+
+/* ========================= */
+/* SELECTS */
+/* ========================= */
+
+SELECT * FROM usuario;
+
+SELECT * FROM time;
+
+SELECT * FROM jogador;
+
+SELECT * FROM resultadoQuiz;
+
+SELECT 
+	resultadoQuiz.id,
+	usuario.nome,
+	resultadoQuiz.jogador_resultado,
+	resultadoQuiz.porcentagem_curry,
+	resultadoQuiz.porcentagem_lebron,
+	resultadoQuiz.porcentagem_magic,
+	resultadoQuiz.porcentagem_shaq
+FROM resultadoQuiz
+JOIN usuario
+	ON resultadoQuiz.fk_usuario = usuario.id;
+

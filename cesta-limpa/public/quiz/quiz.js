@@ -148,26 +148,18 @@ let quantidadeRespostasMagic = 0
 let quantidadeRespostasShaq = 0
 
 function onloadEsconder() {
-
-    document.getElementById('pontuacao').style.display = "none"
-
-    document.getElementById('jogo').style.display = "none"
+    pontuacao.style.display = "none"
+    jogo.style.display = "none"
 }
 
 function iniciarQuiz() {
-
-    document.getElementById('pontuacao').style.display = "flex"
-
-    document.getElementById('jogo').style.display = "flex"
-
-    document.getElementById('btnIniciarQuiz').style.display = "none"
-
-    document.getElementById('qtdQuestoes').innerHTML =
+    pontuacao.style.display = "flex"
+    jogo.style.display = "flex"
+    btnIniciarQuiz.style.display = "none"
+    qtdQuestoes.innerHTML =
         quantidadeDeQuestoes
-
     preencherHTMLcomQuestaoAtual(0)
 
-    btnTentarNovamente.disabled = true
 }
 
 function preencherHTMLcomQuestaoAtual(index) {
@@ -177,59 +169,48 @@ function preencherHTMLcomQuestaoAtual(index) {
 
     numeroDaQuestaoAtual = index
 
-    document.getElementById("spanNumeroDaQuestaoAtual").innerHTML =
-        Number(index) + 1
+    spanNumeroDaQuestaoAtual.innerHTML =
+        index + 1
 
-    document.getElementById("spanQuestaoExibida").innerHTML =
+    spanQuestaoExibida.innerHTML =
         questaoAtual.pergunta
 
-    document.getElementById("labelOpcaoUm").innerHTML =
+    labelOpcaoUm.innerHTML =
         questaoAtual.alternativaA
 
-    document.getElementById("labelOpcaoDois").innerHTML =
+    labelOpcaoDois.innerHTML =
         questaoAtual.alternativaB
 
-    document.getElementById("labelOpcaoTres").innerHTML =
+    labelOpcaoTres.innerHTML =
         questaoAtual.alternativaC
 
-    document.getElementById("labelOpcaoQuatro").innerHTML =
+    labelOpcaoQuatro.innerHTML =
         questaoAtual.alternativaD
 }
 
-function avancar() {
-
+function submeter() {
     const options =
         document.getElementsByName("option")
-
     let possuiAlternativaEscolhida = false
 
     for (let i = 0; i < options.length; i++) {
-
-        if (options[i].checked) {
-
+        if (options[i].checked == true) {
             possuiAlternativaEscolhida = true
-
-            break
         }
     }
 
-    if (!possuiAlternativaEscolhida) {
-
+    if (possuiAlternativaEscolhida == false) {
         alert("Escolha uma alternativa.")
-
         return
     }
-
     checarResposta()
-
     desmarcarRadioButtons()
+    spanCertas.innerHTML =
+        numeroDaQuestaoAtual
 
     if (numeroDaQuestaoAtual < quantidadeDeQuestoes) {
-
         preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
-
         if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
-
             infoQuestao.innerHTML =
                 `<span>Última questão!</span>`
         }
@@ -241,54 +222,37 @@ function avancar() {
 }
 
 function checarResposta() {
-
     const questaoAtual =
         listaDeQuestoes[numeroDaQuestaoAtual]
-
     const options =
         document.getElementsByName("option")
-
     for (let i = 0; i < options.length; i++) {
-
-        if (options[i].checked) {
-
+        if (options[i].checked == true) {
             let jogadorEscolhido = ""
-
             if (options[i].value == "alternativaA") {
-
                 jogadorEscolhido =
                     questaoAtual.jogadorA
 
             } else if (options[i].value == "alternativaB") {
-
                 jogadorEscolhido =
                     questaoAtual.jogadorB
 
             } else if (options[i].value == "alternativaC") {
-
                 jogadorEscolhido =
                     questaoAtual.jogadorC
 
             } else if (options[i].value == "alternativaD") {
-
                 jogadorEscolhido =
                     questaoAtual.jogadorD
             }
 
             if (jogadorEscolhido == "Stephen Curry") {
-
                 quantidadeRespostasCurry++
-
             } else if (jogadorEscolhido == "LeBron James") {
-
                 quantidadeRespostasLeBron++
-
             } else if (jogadorEscolhido == "Magic Johnson") {
-
                 quantidadeRespostasMagic++
-
             } else if (jogadorEscolhido == "Shaquille O'Neal") {
-
                 quantidadeRespostasShaq++
             }
         }
@@ -298,25 +262,20 @@ function checarResposta() {
 }
 
 function desmarcarRadioButtons() {
-
     const options =
         document.getElementsByName("option")
-
     for (let i = 0; i < options.length; i++) {
-
         options[i].checked = false
     }
 }
 
 function finalizarJogo() {
 
-    let nomeJogadorFinal = ""
+    let nomeJogadorFinal =
+        "Stephen Curry"
 
     let maiorQuantidadeRespostas =
         quantidadeRespostasCurry
-
-    nomeJogadorFinal =
-        "Stephen Curry"
 
     if (quantidadeRespostasLeBron > maiorQuantidadeRespostas) {
 
@@ -357,8 +316,47 @@ function finalizarJogo() {
     let porcentagemShaq =
         (quantidadeRespostasShaq / quantidadeDeQuestoes) * 100
 
-    document.getElementById('msgFinal').innerHTML =
+    fetch("/quiz/salvarResultado", {
 
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+
+            jogadorResultadoServer:
+                nomeJogadorFinal,
+
+            porcentagemCurryServer:
+                porcentagemCurry,
+
+            porcentagemLeBronServer:
+                porcentagemLeBron,
+
+            porcentagemMagicServer:
+                porcentagemMagic,
+
+            porcentagemShaqServer:
+                porcentagemShaq,
+
+            fkUsuarioServer:
+                sessionStorage.ID_USUARIO
+        })
+    })
+
+    .then(function (resposta) {
+        console.log("Resultado salvo!")
+    })
+
+    .catch(function (erro) {
+        console.log(erro)
+    })
+
+    spanPontuacaoFinal.innerHTML =
+        nomeJogadorFinal
+    msgFinal.innerHTML =
         `
         <h2>
             Você joga como ${nomeJogadorFinal} 🏀
@@ -382,13 +380,7 @@ function finalizarJogo() {
         ${porcentagemShaq.toFixed(0)}%
         `
 
-    document.getElementById('jogo').style.display =
-        "none"
-
-    btnTentarNovamente.disabled = false
+    jogo.style.display = "none"
+    btnSubmeter.disabled = true
 }
 
-function tentarNovamente() {
-
-    window.location.reload()
-}

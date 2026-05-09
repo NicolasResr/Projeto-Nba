@@ -8,11 +8,14 @@ var quizController =
 router.post(
     "/cadastrarResposta",
     function (req, res) {
+        quizController.cadastrarResposta(req, res);
+    }
+);
 
-        quizController.cadastrarResposta(
-            req,
-            res
-        );
+router.post(
+    "/salvarResultado",
+    function (req, res) {
+        quizController.salvarResultado(req,res);
     }
 );
 

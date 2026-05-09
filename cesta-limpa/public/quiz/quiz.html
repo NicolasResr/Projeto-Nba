@@ -14,153 +14,151 @@
 
 <body onload="onloadEsconder()">
 
-    <div id="pontuacaoEJogo">
+    <div id="paginaQuiz">
 
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()">
             INICIAR QUIZ
         </button>
 
-        <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+        <div id="pontuacaoEJogo">
 
-            <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+            <div id="jogo">
 
-                <span class="width-fit-content">
-                    Respostas feitas:
-                    <span id="spanCertas"></span>
-                </span>
+                <div id="ladoPergunta">
+
+                    <div id="infoQuestao">
+
+                        <span>
+                            Questão
+                            <span id="spanNumeroDaQuestaoAtual"></span>
+                            de
+                            <span id="qtdQuestoes"></span>
+                        </span>
+
+                    </div>
+
+                    <div id="perguntaDaQuestaoAtual">
+
+                        <span id="spanQuestaoExibida"></span>
+
+                    </div>
+
+                </div>
+
+                <div id="ladoAlternativas">
+
+                    <div id="infoAlternativas">
+
+                        <span>
+                            Escolha uma opção:
+                        </span>
+
+                    </div>
+
+                    <div id="opcoes">
+
+                        <span class="opcao">
+
+                            <input type="radio"
+                                id="primeiraOpcao"
+                                name="option"
+                                value="alternativaA">
+
+                            <label for="primeiraOpcao"
+                                id="labelOpcaoUm">
+                            </label>
+
+                        </span>
+
+                        <span class="opcao">
+
+                            <input type="radio"
+                                id="segundaOpcao"
+                                name="option"
+                                value="alternativaB">
+
+                            <label for="segundaOpcao"
+                                id="labelOpcaoDois">
+                            </label>
+
+                        </span>
+
+                        <span class="opcao">
+
+                            <input type="radio"
+                                id="terceiraOpcao"
+                                name="option"
+                                value="alternativaC">
+
+                            <label for="terceiraOpcao"
+                                id="labelOpcaoTres">
+                            </label>
+
+                        </span>
+
+                        <span class="opcao">
+
+                            <input type="radio"
+                                id="quartaOpcao"
+                                name="option"
+                                value="alternativaD">
+
+                            <label for="quartaOpcao"
+                                id="labelOpcaoQuatro">
+                            </label>
+
+                        </span>
+
+                    </div>
+
+                    <div id="botoes">
+
+                        <button onclick="submeter()"
+                            id="btnSubmeter">
+
+                            Próxima questão
+
+                        </button>
+
+                    </div>
+
+                </div>
 
             </div>
 
-            <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+            <div id="pontuacao">
 
-                <span id="pontuacaoFinal" class="width-fit-content">
+                <h2>
+                    Quiz NBA
+                </h2>
 
-                    Jogador parecido:
-                    <span id="spanPontuacaoFinal">***</span>
+                <div class="boxPontuacao">
 
-                </span>
+                    <span>
+                        Respostas feitas
+                    </span>
 
-                <span id="msgFinal" class="width-fit-content">
+                    <h1 id="spanCertas">
+                        0
+                    </h1>
+
+                </div>
+
+                <div class="boxPontuacao">
+
+                    <span>
+                        Jogador parecido
+                    </span>
+
+                    <h1 id="spanPontuacaoFinal">
+                        ***
+                    </h1>
+
+                </div>
+
+                <div id="msgFinal">
                     ***
-                </span>
-
-            </div>
-
-        </div>
-
-        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
-
-            <div id="infoQuestao" class="padding-8">
-
-                <span>
-
-                    Questão atual:
-                    <span id="spanNumeroDaQuestaoAtual"></span>
-
-                    de
-
-                    <span id="qtdQuestoes"></span>
-                    questões.
-
-                </span>
-
-            </div>
-
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
-
-                <span id="spanQuestaoExibida" class="text-bold"></span>
-
-            </div>
-
-            <div id="infoAlternativas" class="padding-8">
-
-                <span>
-                    <em>Escolha uma opção:</em>
-                </span>
-
-            </div>
-
-            <div id="opcoes" class="flex-colunar padding-8">
-
-                <span>
-
-                    <input
-                        type="radio"
-                        id="primeiraOpcao"
-                        name="option"
-                        value="alternativaA"
-                    >
-
-                    <label
-                        for="primeiraOpcao"
-                        id="labelOpcaoUm"
-                    ></label>
-
-                </span>
-
-                <span>
-
-                    <input
-                        type="radio"
-                        id="segundaOpcao"
-                        name="option"
-                        value="alternativaB"
-                    >
-
-                    <label
-                        for="segundaOpcao"
-                        id="labelOpcaoDois"
-                    ></label>
-
-                </span>
-
-                <span>
-
-                    <input
-                        type="radio"
-                        id="terceiraOpcao"
-                        name="option"
-                        value="alternativaC"
-                    >
-
-                    <label
-                        for="terceiraOpcao"
-                        id="labelOpcaoTres"
-                    ></label>
-
-                </span>
-
-                <span>
-
-                    <input
-                        type="radio"
-                        id="quartaOpcao"
-                        name="option"
-                        value="alternativaD"
-                    >
-
-                    <label
-                        for="quartaOpcao"
-                        id="labelOpcaoQuatro"
-                    ></label>
-
-                </span>
-
-            </div>
-
-            <div id="botoes" class="flex-colunar padding-8">
-
-                <button onclick="submeter()" id="btnSubmeter">
-                    Submeter resposta
-                </button>
-
-                <button onclick="avancar()" id="btnProx" disabled>
-                    Avançar
-                </button>
-
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>
-                    Tentar novamente
-                </button>
+                </div>
 
             </div>
 
