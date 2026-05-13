@@ -19,4 +19,13 @@ router.post(
     }
 );
 
+router.get(
+    "/buscarResultado/:idUsuario",
+    function (req, res) {
+        quizController.buscarResultado(req, res);
+    }
+);
+
+
+
 module.exports = router;

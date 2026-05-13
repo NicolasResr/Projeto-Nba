@@ -346,13 +346,13 @@ function finalizarJogo() {
         })
     })
 
-    .then(function (resposta) {
-        console.log("Resultado salvo!")
-    })
+        .then(function (resposta) {
+            console.log("Resultado salvo!")
+        })
 
-    .catch(function (erro) {
-        console.log(erro)
-    })
+        .catch(function (erro) {
+            console.log(erro)
+        })
 
     spanPontuacaoFinal.innerHTML =
         nomeJogadorFinal
@@ -378,9 +378,14 @@ function finalizarJogo() {
 
         Shaquille O'Neal:
         ${porcentagemShaq.toFixed(0)}%
+        <br><br><br> 
+
+        <button id ="btnIniciarQuiz" onclick="irParaDashboard()"> Ver Dashboard  </button>
         `
 
     jogo.style.display = "none"
     btnSubmeter.disabled = true
 }
-
+function irParaDashboard() {
+     window.location = "../dashboard/dashboard.html"; 
+    }

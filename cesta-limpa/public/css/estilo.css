@@ -12,14 +12,17 @@ body {
   font-family: "Montserrat", sans-serif;
   background: #07111f;
   color: white;
+  overflow-x: hidden;
 }
-
-/* HEADER */
 
 .header {
   background: linear-gradient(90deg, #c8102e, #0a0f2c);
   padding: 15px 0;
   border-bottom: 3px solid white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(10px);
 }
 
 .header-container {
@@ -68,7 +71,9 @@ body {
 }
 
 .hero {
-  width: auto;
+  width: 100%;
+  height: 400px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,7 +81,7 @@ body {
   flex-direction: column;
 
   background:
-    linear-gradient(rgba(4, 10, 25, 0.85), rgba(4, 10, 25, 0.9)),
+    linear-gradient(rgba(4, 10, 25, 0.82), rgba(4, 10, 25, 0.92)),
     url(../assets/imgs/fundo-nba.jpg);
 
   padding: 40px;
@@ -87,42 +92,47 @@ body {
 }
 
 .hero h2 {
-  font-size: 50px;
-  width: 700px;
+  font-size: 48px;
+  width: 900px;
+  max-width: 100%;
   line-height: 1.1;
   font-weight: 900;
 }
 
 .hero p {
-  margin-top: 25px;
-  font-size: 22px;
+  margin-top: 20px;
+  font-size: 18px;
   color: #d6d6d6;
-  max-width: 700px;
-  line-height: 1.6;
+  max-width: 850px;
+  line-height: 1.8;
 }
 
 .hero button {
   margin-top: 50px;
-
-  width: 220px;
-  height: 60px;
-
+  width: 240px;
+  height: 65px;
   border: none;
-  border-radius: 12px;
-
+  border-radius: 16px;
   background: linear-gradient(90deg, #ff7b00, #ff4800);
-
   color: white;
   font-size: 18px;
   font-weight: 700;
-
   cursor: pointer;
+  transition: .3s;
+  box-shadow: 0 15px 40px rgba(255, 123, 0, 0.35);
+}
 
-  box-shadow: 0 10px 30px rgba(255, 123, 0, 0.4);
+.hero button:hover {
+  transform: translateY(-5px) scale(1.03);
 }
 
 .parte-de-baixo {
-  background: linear-gradient(#07111f, #18458e);
+  margin-top: 50px;
+  background:
+    linear-gradient(180deg,
+      #07111f 0%,
+      #0d1b33 50%,
+      #10284f 100%);
 }
 
 .sobre {
@@ -130,56 +140,215 @@ body {
 }
 
 .sobre-container {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-  margin-right: 50px;
-  margin-left: 50px;
+  width: 90%;
+  max-width: 1500px;
+  margin: auto;
 }
 
-.coluna-esquerda {
-  width: 50%;
+.titulo-museu {
+  text-align: center;
+  margin-bottom: 90px;
 }
 
-.coluna-esquerda h2 {
-  font-size: 55px;
+.titulo-museu span {
+  color: #ff8c00;
+  font-weight: 800;
+  letter-spacing: 5px;
+  font-size: 15px;
+}
+
+.titulo-museu h2 {
+  font-size: 56px;
+  width: 1000px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  color: white;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.titulo-museu p {
+  color: #d0d0d0;
+  margin: 35px auto 0 auto;
+  font-size: 22px;
+  line-height: 2;
+  max-width: 1050px;
+}
+
+.titulo-museu img{
+  width: 48px;
+}
+
+.impacto-nba {
+  font-size: 56px;
+  width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  margin-bottom: 90px;
+}
+
+.impacto-texto {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.impacto-texto h2 {
+  font-size: 52px;
   margin-bottom: 30px;
   font-weight: 900;
 }
 
-.coluna-esquerda p {
-  color: #d8d8d8;
-  line-height: 1.8;
-  font-size: 18px;
+.impacto-texto p {
+  color: #d2d2d2;
+  line-height: 2;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.linha-tempo {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 100px;
+  flex-wrap: wrap;
+}
+
+.era-card {
+  flex: 1;
+  min-width: 260px;
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 32px;
+  padding: 38px;
+
+}
+
+.era-card:hover {
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.era-numero {
+  font-size: 60px;
+  font-weight: 900;
+  color: #ff8c00;
   margin-bottom: 20px;
 }
 
-.coluna-direita {
-  width: 50%;
+.era-card h3 {
+  color: white;
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 1.2;
 }
 
-.info-linha {
-  margin-bottom: 25px;
-  padding: 25px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
+.era-card p {
+  color: #cfcfcf;
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+.museu-conteudo {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 35px;
+  align-items: stretch;
+}
+
+.museu-esquerda {
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02));
+
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: 0.3s;
+  border-radius: 35px;
+  padding: 50px;
 }
 
-.info-linha h3 {
+.museu-esquerda h2 {
+  font-size: 52px;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.museu-esquerda p {
+  color: #d0d0d0;
+  line-height: 2;
+  margin-bottom: 25px;
+  font-size: 19px;
+}
+
+.curiosidades {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 45px;
+}
+
+.curiosidade-card {
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02));
+
+  border-radius: 28px;
+  padding: 35px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.curiosidade-card h3 {
+  color: #ff8c00;
+  font-size: 50px;
+  margin-bottom: 12px;
+}
+
+.curiosidade-card p {
+  color: white;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.museu-direita {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.museu-direita .info-linha {
+  flex: 1;
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02));
+
+  border-radius: 30px;
+  padding: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.museu-direita .info-linha:hover {
+  border-color: #ff8c00;
+}
+
+.museu-direita .info-linha h3 {
+  color: white;
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
   gap: 15px;
-
-  margin-bottom: 10px;
-
-  font-size: 22px;
+  font-size: 25px;
 }
 
-.info-linha p {
-  color: #cfcfcf;
-  line-height: 1.6;
+.museu-direita .info-linha p {
+  color: #d0d0d0;
+  line-height: 1.9;
+  font-size: 17px;
 }
 
 .times {
@@ -189,15 +358,15 @@ body {
 }
 
 .times h2 {
-  font-size: 60px;
+  font-size: 65px;
   margin-bottom: 20px;
   font-weight: 900;
 }
 
 .conferencia {
-  margin-top: 70px;
-  margin-bottom: 30px;
-  font-size: 35px;
+  margin-top: 80px;
+  margin-bottom: 35px;
+  font-size: 38px;
   font-weight: 800;
 }
 
@@ -219,9 +388,14 @@ body {
 .card-nba {
   width: 250px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 25px;
+  border-radius: 28px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-nba:hover {
+  box-shadow:
+    0 20px 35px rgba(0, 0, 0, 0.35);
 }
 
 .card-img {
@@ -236,6 +410,10 @@ body {
   transition: 0.4s;
 }
 
+.card-nba:hover img {
+  transform: scale(1.2);
+}
+
 .card-info {
   padding: 25px;
 }
@@ -247,7 +425,7 @@ body {
 
 .footer {
   background: #050b16;
-  padding-top: 70px;
+  padding-top: 80px;
 }
 
 .footer-container {
@@ -256,6 +434,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 40px;
 }
 
 .footer-col {
@@ -274,7 +453,7 @@ body {
 
 .footer-col p {
   color: #c9c9c9;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 .footer-col a {
@@ -282,6 +461,7 @@ body {
   color: #c9c9c9;
   text-decoration: none;
   margin-bottom: 10px;
+  transition: .3s;
 }
 
 .footer-col a:hover {
@@ -294,4 +474,79 @@ body {
   padding: 25px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   color: #8f8f8f;
+}
+
+@media screen and (max-width: 1200px) {
+
+  .linha-tempo {
+    flex-wrap: wrap;
+  }
+
+  .museu-conteudo {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media screen and (max-width: 900px) {
+
+  .hero h2 {
+    font-size: 48px;
+  }
+
+  .titulo-museu h2 {
+    font-size: 50px;
+  }
+
+  .impacto-texto h2 {
+    font-size: 40px;
+  }
+
+  .curiosidades {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .header-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    min-height: 80vh;
+  }
+
+  .hero h2 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .titulo-museu h2 {
+    font-size: 38px;
+  }
+
+  .impacto-texto h2 {
+    font-size: 32px;
+  }
+
+  .museu-esquerda,
+  .museu-direita .info-linha {
+    padding: 30px;
+  }
+
+  .times h2 {
+    font-size: 42px;
+  }
+
 }

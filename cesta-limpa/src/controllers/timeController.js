@@ -3,7 +3,6 @@ var timeModel = require("../models/timeModel");
 function listar(req, res) {
 
     timeModel.listar()
-
         .then(function(resultado) {
             res.json(resultado);
         })

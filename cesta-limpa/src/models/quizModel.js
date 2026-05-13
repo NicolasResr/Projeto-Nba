@@ -54,7 +54,26 @@ function salvarResultado(
     return database.executar(instrucaoSql);
 }
 
+function buscarResultado(idUsuario) {
+
+    var instrucaoSql = `
+
+        SELECT *
+        FROM resultadoQuiz
+        WHERE fk_usuario = ${idUsuario}
+        ORDER BY id DESC
+        LIMIT 1;
+
+    `;
+
+    console.log(instrucaoSql);
+
+    return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
     cadastrarResposta,
-    salvarResultado
+    salvarResultado,
+    buscarResultado
 }

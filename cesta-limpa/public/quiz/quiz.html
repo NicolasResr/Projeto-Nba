@@ -2,171 +2,99 @@
 <html lang="pt-br">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Quiz NBA</title>
-
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body onload="onloadEsconder()">
-
     <div id="paginaQuiz">
-
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()">
             INICIAR QUIZ
         </button>
 
         <div id="pontuacaoEJogo">
-
             <div id="jogo">
-
                 <div id="ladoPergunta">
-
                     <div id="infoQuestao">
-
                         <span>
                             Questão
                             <span id="spanNumeroDaQuestaoAtual"></span>
                             de
                             <span id="qtdQuestoes"></span>
                         </span>
-
                     </div>
-
                     <div id="perguntaDaQuestaoAtual">
-
                         <span id="spanQuestaoExibida"></span>
-
                     </div>
-
                 </div>
-
                 <div id="ladoAlternativas">
-
                     <div id="infoAlternativas">
-
-                        <span>
-                            Escolha uma opção:
-                        </span>
-
+                        <span>Escolha uma opção:</span>
                     </div>
-
                     <div id="opcoes">
-
                         <span class="opcao">
+                            <input type="radio" id="primeiraOpcao" name="option" value="alternativaA">
 
-                            <input type="radio"
-                                id="primeiraOpcao"
-                                name="option"
-                                value="alternativaA">
-
-                            <label for="primeiraOpcao"
-                                id="labelOpcaoUm">
+                            <label for="primeiraOpcao" id="labelOpcaoUm">
                             </label>
-
                         </span>
 
                         <span class="opcao">
+                            <input type="radio" id="segundaOpcao" name="option" value="alternativaB">
 
-                            <input type="radio"
-                                id="segundaOpcao"
-                                name="option"
-                                value="alternativaB">
-
-                            <label for="segundaOpcao"
-                                id="labelOpcaoDois">
+                            <label for="segundaOpcao" id="labelOpcaoDois">
                             </label>
-
                         </span>
 
                         <span class="opcao">
+                            <input type="radio" id="terceiraOpcao" name="option" value="alternativaC">
 
-                            <input type="radio"
-                                id="terceiraOpcao"
-                                name="option"
-                                value="alternativaC">
-
-                            <label for="terceiraOpcao"
-                                id="labelOpcaoTres">
+                            <label for="terceiraOpcao" id="labelOpcaoTres">
                             </label>
-
                         </span>
 
                         <span class="opcao">
+                            <input type="radio" id="quartaOpcao" name="option" value="alternativaD">
 
-                            <input type="radio"
-                                id="quartaOpcao"
-                                name="option"
-                                value="alternativaD">
-
-                            <label for="quartaOpcao"
-                                id="labelOpcaoQuatro">
+                            <label for="quartaOpcao" id="labelOpcaoQuatro">
                             </label>
-
                         </span>
-
                     </div>
 
                     <div id="botoes">
-
-                        <button onclick="submeter()"
-                            id="btnSubmeter">
-
+                        <button onclick="submeter()" id="btnSubmeter">
                             Próxima questão
-
                         </button>
-
                     </div>
-
                 </div>
-
             </div>
 
             <div id="pontuacao">
-
-                <h2>
-                    Quiz NBA
-                </h2>
-
+                <h2>Quiz NBA</h2>
                 <div class="boxPontuacao">
-
-                    <span>
-                        Respostas feitas
-                    </span>
+                    <span>Respostas feitas</span>
 
                     <h1 id="spanCertas">
                         0
                     </h1>
-
                 </div>
 
                 <div class="boxPontuacao">
-
-                    <span>
-                        Jogador parecido
-                    </span>
+                    <span>Jogador parecido</span>
 
                     <h1 id="spanPontuacaoFinal">
                         ***
                     </h1>
-
                 </div>
 
-                <div id="msgFinal">
-                </div>
-
+                <div id="msgFinal"></div>
             </div>
-
         </div>
-
     </div>
 
     <script src="quiz.js"></script>
-
 </body>
 
 </html>
