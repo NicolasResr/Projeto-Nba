@@ -1,65 +1,174 @@
 # 🏀 Cesta Limpa
 
-Projeto individual desenvolvido para o 1º semestre de Sistemas de Informação.
+Projeto acadêmico desenvolvido para o curso de Sistemas de Informação, inspirado no universo da NBA.
 
-O objetivo do projeto é criar um site inspirado na NBA, permitindo que usuários comparem seu desempenho no basquete com estatísticas de jogadores e equipes da liga.
+O objetivo do projeto é criar uma plataforma interativa onde usuários possam explorar a história da NBA, descobrir curiosidades sobre a liga, realizar quizzes de perfil e comparar seu estilo de jogo com grandes lendas do basquete mundial.
 
 ---
 
 # 📖 Sobre o Projeto
 
-O **Cesta Limpa** é uma aplicação web desenvolvida utilizando:
+O **Cesta Limpa** é uma aplicação web inspirada na cultura da NBA, funcionando como uma mistura entre:
 
-- HTML
-- CSS
-- JavaScript
+- museu digital da NBA
+- plataforma interativa
+- sistema de estatísticas
+- experiência visual esportiva moderna
 
-O site apresenta informações sobre a NBA, equipes das conferências Leste e Oeste e futuramente contará com uma dashboard interativa para análise de desempenho do usuário.
+O projeto busca unir:
+- entretenimento
+- esporte
+- tecnologia
+- visual moderno
+- experiência imersiva
 
 ---
 
-# 🎯 Objetivo
+# 🚀 Tecnologias Utilizadas
+
+## Front-end
+- HTML5
+- CSS3
+- JavaScript
+
+## Back-end
+- Node.js
+- Express.js
+
+## Banco de Dados
+- MySQL
+
+## Versionamento
+- Git
+- GitHub
+
+---
+
+# 🎯 Objetivos do Projeto
 
 O projeto foi criado com o intuito de:
 
-- praticar desenvolvimento web
-- aplicar conceitos de front-end
+- praticar desenvolvimento full stack
+- aplicar conceitos de banco de dados
 - desenvolver interfaces modernas
+- trabalhar responsividade
 - utilizar dashboards e visualização de dados
-- criar uma experiência inspirada no universo NBA
+- criar uma experiência inspirada na NBA
+- aplicar relacionamentos SQL
+- integrar front-end com back-end
 
 ---
 
 # 🏀 Funcionalidades
 
-## ✅ Página Home
-- Hero section estilizada
-- Explicação sobre a NBA
-- Listagem de times da NBA
-- Layout responsivo
-- Navbar personalizada
-- Footer completo
+# ✅ Página Inicial
 
-## 🚧 Funcionalidades Futuras
-- Login e cadastro
-- Dashboard do usuário
-- Comparação de estatísticas
-- Gráficos interativos
-- Quiz sobre basquete
-- Ranking de jogadores
+A Home foi transformada em uma experiência visual inspirada em museus esportivos modernos.
+
+## Contém:
+- Hero section estilizada
+- Navbar personalizada
+- Layout moderno
+- Gradientes e efeitos visuais
+- Footer completo
+- Design responsivo
 
 ---
 
-# 🖼️ Layout
+# 🏛️ Museu NBA
 
-O projeto utiliza cores inspiradas na NBA:
+Uma das principais partes do projeto.
 
-- 🔵 Azul
-- 🔴 Vermelho
-- ⚫ Preto
+A seção “Museu NBA” apresenta:
 
-Além disso, foram utilizados:
-- gradientes
-- efeitos hover
-- cards personalizados
-- imagens dos times
+## 📜 História da NBA
+- Origem da liga
+- Evolução do basquete
+- Transformação da NBA em fenômeno global
+
+## ⏳ Linha do Tempo
+Cards mostrando eras importantes:
+- 1946 → Fundação da NBA
+- 1980 → Magic Johnson vs Larry Bird
+- 1990 → Era Michael Jordan
+- 2020 → Basquete moderno com Curry e LeBron
+
+## 🌍 Impacto Mundial
+Explica como a NBA influenciou:
+- música
+- moda
+- cultura urbana
+- videogames
+- entretenimento global
+
+## 🧩 Layout Bento
+A seção utiliza um layout estilo Bento Grid moderno:
+- cards informativos
+- curiosidades
+- estatísticas globais
+- lendas da NBA
+
+---
+
+# 🏀 Times da NBA
+
+O projeto possui uma galeria completa com os 30 times da NBA.
+
+## Conferência Leste
+- Boston Celtics
+- Chicago Bulls
+- Miami Heat
+- Milwaukee Bucks
+- New York Knicks
+- entre outros
+
+## Conferência Oeste
+- Los Angeles Lakers
+- Golden State Warriors
+- Denver Nuggets
+- Phoenix Suns
+- San Antonio Spurs
+- entre outros
+
+## Cada card possui:
+- cores oficiais do time
+- logos personalizados
+- hover animations
+- design moderno
+
+---
+
+# 🧠 Quiz NBA
+
+O usuário pode realizar um quiz interativo para descobrir qual jogador da NBA mais combina com seu estilo.
+
+## Jogadores utilizados:
+- Stephen Curry
+- LeBron James
+- Magic Johnson
+- Shaquille O'Neal
+
+## O sistema:
+- calcula porcentagens
+- gera compatibilidade
+- salva resultados no banco de dados
+
+### Exemplo:
+- 82% Curry
+- 70% LeBron
+
+---
+
+# 📊 Dashboard
+
+O sistema possui dashboard integrada para visualização dos resultados.
+
+## Funcionalidades:
+- exibição de estatísticas
+- resultados do quiz
+- informações do usuário
+- comparação de desempenho
+
+
+```sql
+cestaLimpa
