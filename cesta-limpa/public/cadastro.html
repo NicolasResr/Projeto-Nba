@@ -15,18 +15,20 @@
 
 <body class="login-page" onload="listar()">
 
-  <div class="login-header">
-    <div class="login-container">
-      <div class="logo-login">
+  <div class="header">
+    <div class="container header-container">
+
+      <div class="logo">
         <img src="./assets/icon/cesta-basquete.png">
         <h1>Cesta Limpa</h1>
       </div>
 
-      <div class="login-navbar">
+      <div class="menu">
         <a href="index.html">Home</a>
-        <a href="#">Dashboard</a>
-        <a href="login.html">Login</a>
+        <a href="simulador.html">Simulador</a>
         <a href="cadastro.html" class="active">Cadastro</a>
+        <a href="login.html">Login</a>
+        <a href="javascript:void(0)" onclick="validarSessao()">quiz</a>
       </div>
     </div>
   </div>
@@ -81,7 +83,7 @@
 
   <div class="login-footer">
     <div class="login-container">
-      <h4>#CestaLimpa © 2026</h4>
+      <h4> CestaLimpa © 2026 <img src="./assets/icon//bola-de-basquete-fogo.png" width="30px"CestaLimpa © 2026></h4>
       <span class="version">Projeto NBA</span>
     </div>
   </div>
@@ -102,17 +104,18 @@
 
     var idTimeVincular;
 
-    if (
-      nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || codigoVar == "") {
+     if (emailVar == "" || senhaVar == "") {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML = "Preencha todos os campos.";
-      return false;
-    }
-
-    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1) {
+      valido = false;
+    } else if (!emailVar.includes("@")) {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "Email inválido (deve conter @ e .)";
-      return false;
+      mensagem_erro.innerHTML = "Email inválido.";
+      valido = false;
+    } else if (senhaVar.length < 8) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "A senha deve ter pelo menos 8 caracteres.";
+      valido = false;
     }
 
     if (senhaVar != confirmacaoSenhaVar) {

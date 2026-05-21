@@ -8,6 +8,7 @@ function validarSessao() {
     if (email != null && nome != null) {
         b_usuario.innerHTML = nome;
     } else {
+        alert("Você não está logado você será redirecionado");
         window.location = "../login.html";
     }
 }

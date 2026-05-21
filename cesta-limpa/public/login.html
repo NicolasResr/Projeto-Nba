@@ -7,25 +7,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cesta Limpa | Login</title>
   <script src="./js/sessao.js"></script>
+    <link rel="stylesheet" href="./css/estilo.css">
+
   <link rel="stylesheet" href="./css/estilologin.css">
 </head>
 
 <body class="login-page">
 
-  <div class="login-header">
-    <div class="login-container">
-      <div class="logo-login">
+  <div class="header">
+    <div class="container header-container">
+
+      <div class="logo">
         <img src="./assets/icon/cesta-basquete.png">
         <h1>Cesta Limpa</h1>
       </div>
-      <div class="login-navbar">
+
+      <div class="menu">
         <a href="index.html">Home</a>
-        <a href="#">Dashboard</a>
+        <a href="simulador.html">Simulador</a>
         <a href="cadastro.html">Cadastro</a>
         <a href="login.html" class="active">Login</a>
+        <a href="javascript:void(0)" onclick="validarSessao()">quiz</a>
       </div>
     </div>
   </div>
+
 
   <div class="login-main">
     <div>
@@ -59,7 +65,7 @@
 
   <div class="login-footer">
     <div class="login-container">
-      <h4>#CestaLimpa © 2026</h4>
+      <h4> <img src="./assets/icon//bola-de-basquete-fogo.png" width="30px"CestaLimpa © 2026> </h4>
       <span class="version">Projeto NBA</span>
     </div>
   </div>
@@ -104,44 +110,44 @@
           senhaServer: senhaVar
         })
       })
-      .then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!");
+        .then(function (resposta) {
+          console.log("ESTOU NO THEN DO entrar()!");
 
-        if (resposta.ok) {
-          resposta.json().then(json => {
-            console.log(json);
+          if (resposta.ok) {
+            resposta.json().then(json => {
+              console.log(json);
 
-            sessionStorage.EMAIL_USUARIO = json.email;
-            sessionStorage.NOME_USUARIO = json.nome;
-            sessionStorage.ID_USUARIO = json.id;
+              sessionStorage.EMAIL_USUARIO = json.email;
+              sessionStorage.NOME_USUARIO = json.nome;
+              sessionStorage.ID_USUARIO = json.id;
+
+              cardErro.style.display = "block";
+              mensagem_erro.innerHTML = "Login realizado com sucesso!";
+
+              setTimeout(function () {
+                window.location = "./quiz/quiz.html";
+              }, 1000);
+            });
+
+          } else {
+            tentativas++;
 
             cardErro.style.display = "block";
-            mensagem_erro.innerHTML = "Login realizado com sucesso!";
 
-            setTimeout(function () {
-              window.location = "./quiz/quiz.html";
-            }, 1000);
-          });
-
-        } else {
-          tentativas++;
-
-          cardErro.style.display = "block";
-
-          if (tentativas >= 3) {
-            botao_login.disabled = true;
-            botao_login.style.opacity = "0.5";
-            mensagem_erro.innerHTML = "Login bloqueado após 3 tentativas.";
-          } else {
-            mensagem_erro.innerHTML = `Email ou senha inválidos. Tentativa ${tentativas} de 3.`;
+            if (tentativas >= 3) {
+              botao_login.disabled = true;
+              botao_login.style.opacity = "0.5";
+              mensagem_erro.innerHTML = "Login bloqueado após 3 tentativas.";
+            } else {
+              mensagem_erro.innerHTML = `Email ou senha inválidos. Tentativa ${tentativas} de 3.`;
+            }
           }
-        }
-      })
-      .catch(function (erro) {
-        console.log(erro);
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "Erro ao conectar com o servidor.";
-      });
+        })
+        .catch(function (erro) {
+          console.log(erro);
+          cardErro.style.display = "block";
+          mensagem_erro.innerHTML = "Erro ao conectar com o servidor.";
+        });
     }
   }
 
