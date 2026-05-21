@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./calculadora.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="calculadora-nba">
+        <a href="../dashboard/dashboard.html" class="btn-voltar">
+            <img src="../assets/icon/seta-esquerda.png" alt="">
+        </a>
+        <div class="calc-container">
+            <span>CALCULADORA NBA</span>
+            <h2>Descubra Seu Índice de Eficiência </h2>
+            <p>
+                Digite suas estatísticas e veja qual seria seu nível
+                de eficiência dentro da NBA.
+            </p>
+
+            <div class="inputs-calc">
+                <input id="ipt_pontos" type="number" placeholder="Pontos por jogo">
+                <input id="ipt_rebotes" type="number" placeholder="Rebotes por jogo">
+                <input id="ipt_assistencias" type="number" placeholder="Assistências por jogo">
+            </div>
+
+            <button onclick="calcularEficiencia()">
+                CALCULAR EFICIÊNCIA
+            </button>
+            <div id="resultadoCalc" class="resultado-calc"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="./calculadora.js"></script>
